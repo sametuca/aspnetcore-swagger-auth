@@ -18,13 +18,13 @@ namespace SwaggerJWT.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration _configuration;
-        
+        //dependency injection
         public AuthenticateController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             this.userManager = userManager;
             _configuration = configuration;
         }
-
+        //login post için
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -64,7 +64,7 @@ namespace SwaggerJWT.Controllers
             }
             return Unauthorized();
         }
-
+        //register için
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
